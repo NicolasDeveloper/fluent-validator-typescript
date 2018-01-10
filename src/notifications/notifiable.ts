@@ -1,5 +1,6 @@
+import { List } from "linqts";
 import { Notification } from "./notification";
-import { List } from 'linqts';
+
 
 export class Notifiable {
     private _notifications: List<Notification>;
@@ -7,6 +8,9 @@ export class Notifiable {
     constructor() {
         this._notifications = new List<Notification>();
     }
+
+    public invalid = (): boolean => this._notifications.Any() || this.getNotificationsFromValidations().Any();
+    public valid = (): boolean => !this.invalid;
 
     public addNotification(item: Notification) {
         this._notifications.Add(item);
@@ -22,8 +26,7 @@ export class Notifiable {
     protected validations = (): List<Notification> => null;
 
     private getNotificationsFromValidations = (): List<Notification> =>
-        this.validations() || new List<Notification>();
+        this.validations() || new List<Notification>()
 
-    public invalid = (): boolean => this._notifications.Any() || this.getNotificationsFromValidations().Any();
-    public valid = (): boolean => !this.invalid;
+    
 }

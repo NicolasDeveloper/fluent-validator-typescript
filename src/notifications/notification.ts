@@ -7,7 +7,7 @@ export class Notification {
         this._property = property;
         this._message = message;
     }
-
+ 
     get property(): string {
         return this._property;
     }

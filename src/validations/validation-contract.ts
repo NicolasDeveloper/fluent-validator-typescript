@@ -1,10 +1,12 @@
 import { Notifiable } from "../notifications/notifiable";
-import { StringValidationContract } from "./string-validation-contract";
 import { IValidatable } from "./contracts/ivalidatable";
+import { StringValidationContract } from "./string-validation-contract";
+
 
 export class ValidationContract extends Notifiable implements StringValidationContract, IValidatable {
    
-
+    public stringIsNotNullOrEmpty: (val: string, property: string, message: string) => ValidationContract;
+    
     constructor() {
         super();
     }
@@ -16,8 +18,7 @@ export class ValidationContract extends Notifiable implements StringValidationCo
         }
         return this;
     }
-
-    stringIsNotNullOrEmpty: (val: string, property: string, message: string) => ValidationContract;
+    
 }
 
 applyMixins(ValidationContract, [StringValidationContract]);
@@ -27,8 +28,8 @@ applyMixins(ValidationContract, [StringValidationContract]);
 ////////////////////////////////////////
 
 function applyMixins(derivedCtor: any, baseCtors: any[]) {
-    baseCtors.forEach(baseCtor => {
-        Object.getOwnPropertyNames(baseCtor.prototype).forEach(name => {
+    baseCtors.forEach((baseCtor) => {
+        Object.getOwnPropertyNames(baseCtor.prototype).forEach((name) => {
             derivedCtor.prototype[name] = baseCtor.prototype[name];
         });
     });

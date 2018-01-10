@@ -3,13 +3,12 @@ import { ValidationContract } from "../validation-contract";
 
 export abstract class Contract extends Notifiable  {
 
-    private _validationContract: ValidationContract;
+    private _validationcontract: ValidationContract;
     public get validationContract(): ValidationContract {
-        return this._validationContract;
+        return this._validationcontract;
     }
-    
     constructor() {
         super();
-        this._validationContract = new ValidationContract();
+        this._validationcontract = new ValidationContract();
     }
 }

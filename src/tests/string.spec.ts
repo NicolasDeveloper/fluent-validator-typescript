@@ -1,8 +1,8 @@
-import { ValidationContract } from '../validations/validation-contract';
-import { Notifiable } from '../notifications/notifiable';
-import { Notification } from '../notifications/notification';
-import { expect } from 'chai';
-import 'mocha';
+import { expect } from "chai";
+import "mocha";
+import { Notifiable } from "../notifications/notifiable";
+import { Notification } from "../notifications/notification";
+import { ValidationContract } from "../validations/validation-contract";
 
 export class Product extends Notifiable {
 
@@ -18,7 +18,7 @@ export class Product extends Notifiable {
         this._name = name;
 
         // verify if it's valid
-        let contract = new ValidationContract()
+        const contract = new ValidationContract()
             .requires()
             .stringIsNotNullOrEmpty(this.name, "name", "name can't is empty");
         
@@ -26,11 +26,11 @@ export class Product extends Notifiable {
     }
 }
 
-describe('String testing', () => {
+describe("String testing", () => {
 
-    it('should a string with value empty so return a notification', () => {
+    it("should a string with value empty so return a notification", () => {
         const result = new Product("");
-        expect(result.notifications.First().property).to.equal('name');
+        expect(result.notifications.First().property).to.equal("name");
     });
 
 });
