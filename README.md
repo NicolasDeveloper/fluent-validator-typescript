@@ -12,8 +12,8 @@ npm install fluent-validator --save
 
 ### Basic usage
 
-export class Product extends Notifiable {
-    
+```
+export class Product extends Notifiable {    
     public name: string;
     
     constructor(name: string) {
@@ -24,3 +24,4 @@ export class Product extends Notifiable {
         this.addNotifications(contract.notifications);
     }
 }
+```
