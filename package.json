@@ -1,0 +1,22 @@
+{
+  "name": "fluent-validator",
+  "version": "1.0.0",
+  "description": "validation plugin",
+  "main": "index.ts",
+  "author": "nicolas",
+  "license": "ISC",
+  "scripts": {
+    "test": "mocha -r ts-node/register src/**/*.spec.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.1.0",
+    "@types/mocha": "^2.2.46",
+    "chai": "^4.1.2",
+    "mocha": "^4.1.0",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "linqts": "^1.10.0"
+  }
+}
