@@ -7,7 +7,7 @@ Fluent Validator Typescript is a port from https://github.com/andrebaltieri/Flue
 ### Instalation
 
 ```
-npm install fluent-validator --save
+npm install ***** --save
 ```
 
 ### Basic usage
@@ -18,7 +18,7 @@ export class Product extends Notifiable {
     
     constructor(name: string) {
         super();
-        
+
         const contract = new ValidationContract()
             .stringIsNullOrEmpty(name, "name", "name inválid!");
         
