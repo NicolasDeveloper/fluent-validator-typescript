@@ -135,5 +135,5 @@ describe("String test", () => {
 
         expect(right.valid).to.equal(true);
     });
-    
+
 });

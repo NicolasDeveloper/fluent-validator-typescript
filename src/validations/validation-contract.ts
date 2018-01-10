@@ -5,7 +5,7 @@ import { StringValidationContract } from "./string-validation-contract";
 
 export class ValidationContract extends Notifiable implements StringValidationContract, IValidatable {
 
-    /**
+    /** 
      * String Validation Contract
      */
     public hasMinLen: (val: string, min: number, property: string, message: string) => ValidationContract;
