@@ -22,7 +22,7 @@ export class StringValidationContract extends Notifiable implements IValidatable
         return this;
     }
 
-    public stringHasMinLen(val: string, min: number, property: string, message: string): IValidatable {
+    public hasMinLen(val: string, min: number, property: string, message: string): IValidatable {
 
         if ((val || "").length < min) {
             this.addNotification(new Notification(property, message));
@@ -30,7 +30,7 @@ export class StringValidationContract extends Notifiable implements IValidatable
         return this;
     }
 
-    public stringHasMaxLen(val: string, max: number, property: string, message: string): IValidatable {
+    public hasMaxLen(val: string, max: number, property: string, message: string): IValidatable {
 
         if ((val || "").length > max) {
             this.addNotification(new Notification(property, message));
@@ -38,7 +38,7 @@ export class StringValidationContract extends Notifiable implements IValidatable
         return this;
     }
 
-    public stringHasLen(val: string, len: number, property: string, message: string): IValidatable {
+    public hasLen(val: string, len: number, property: string, message: string): IValidatable {
 
         if ((val || "").length !== len) {
             this.addNotification(new Notification(property, message));
@@ -71,18 +71,20 @@ export class StringValidationContract extends Notifiable implements IValidatable
     }
 
     public isEmail(email: string, property: string, message: string): IValidatable {
-        
+
         const pattern = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
-        if (!pattern.test((email || "").toLowerCase())) {
-            this.addNotification(new Notification(property, message));
-        }
-        return this;
+        return this.match((email || "").toLowerCase(), pattern, property, message);
     }
 
     public isUrl(url: string, property: string, message: string): IValidatable {
-        
+
         const pattern = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/;
-        if (!pattern.test((url || "").toLowerCase())) {
+        return this.match((url || "").toLowerCase(), pattern, property, message);
+    }
+
+    public match(value: string, regex: RegExp, property: string, message: string): IValidatable {
+
+        if (!regex.test(value)) {
             this.addNotification(new Notification(property, message));
         }
         return this;
