@@ -18,6 +18,7 @@ export class Product extends Notifiable {
     
     constructor(name: string) {
         super();
+        
         const contract = new ValidationContract()
             .stringIsNullOrEmpty(name, "name", "name inválid!");
         
