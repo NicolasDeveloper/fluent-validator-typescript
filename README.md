@@ -7,7 +7,7 @@ Fluent Validator Typescript is a port from https://github.com/andrebaltieri/Flue
 ### Instalation
 
 ```
-npm install ***** --save
+npm i fluent-validator-typescript --save
 ```
 
 ### Basic usage

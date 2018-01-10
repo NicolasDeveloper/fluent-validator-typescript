@@ -1,5 +1,5 @@
 {
-  "name": "fluent-validator",
+  "name": "fluent-validator-typescript",
   "version": "1.0.0",
   "description": "validation plugin",
   "main": "index.ts",

@@ -1,10 +1,13 @@
+
 import { Notifiable } from "../notifications/notifiable";
 import { IValidatable } from "./contracts/ivalidatable";
+import { NumberValidationContract } from "./number-validation-contract";
 import { StringValidationContract } from "./string-validation-contract";
 
 
-export class ValidationContract extends Notifiable implements StringValidationContract, IValidatable {
 
+export class ValidationContract extends Notifiable implements StringValidationContract, NumberValidationContract, IValidatable {
+   
     /** 
      * String Validation Contract
      */
@@ -20,6 +23,17 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     public stringAreEquals: (val: string, text: string, property: string, message: string) => ValidationContract;
     public stringAreNotEquals: (val: string, text: string, property: string, message: string) => ValidationContract;
 
+    /** 
+     * Number Validation Contract
+     */
+    public isGreaterThan: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public isGreaterOrEqualsThan: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public isLowerThan: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public isLowerOrEqualsThan: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public numberAreEquals: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public numberAreNotEquals: (val: number, comparer: number, property: string, message: string) => ValidationContract;
+    public isBetween: (val: number, from: number, to: number, property: string, message: string) => ValidationContract;
+
     constructor() {
         super();
     }
@@ -33,7 +47,7 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     }
 }
 
-applyMixins(ValidationContract, [StringValidationContract]);
+applyMixins(ValidationContract, [StringValidationContract, NumberValidationContract]);
 
 ////////////////////////////////////////
 // In your runtime library somewhere
