@@ -9,8 +9,12 @@ export class Notifiable {
         this._notifications = new List<Notification>();
     }
 
-    public invalid = (): boolean => this._notifications.Any() || this.getNotificationsFromValidations().Any();
-    public valid = (): boolean => !this.invalid;
+    get invalid(): boolean {
+        return this._notifications.Any() || this.getNotificationsFromValidations().Any();
+    }
+    get valid(): boolean {
+        return !this.invalid;
+    }
 
     public addNotification(item: Notification) {
         this._notifications.Add(item);
