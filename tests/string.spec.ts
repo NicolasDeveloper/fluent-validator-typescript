@@ -1,8 +1,6 @@
 import { assert, expect } from "chai";
 import "mocha";
-import { Notifiable } from "../notifications/notifiable";
-import { Notification } from "../notifications/notification";
-import { ValidationContract } from "../validations/validation-contract";
+import { ValidationContract } from "../src/validations/validation-contract";
 
 describe("String test", () => {
 

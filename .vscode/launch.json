@@ -13,7 +13,7 @@
             "args": [
                 "--require",
                 "ts-node/register",
-                "src/test/*.spec.ts"
+                "tests/*.spec.ts"
             ],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
