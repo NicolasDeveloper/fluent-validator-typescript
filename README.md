@@ -49,3 +49,5 @@ export class Product extends Notifiable {
 | numberAreEquals (val: number, comparer: number, property: string, message: string) |  verify if number are equals as another | OK | Ready  |
 | numberAreNotEquals (val: number, comparer: number, property: string, message: string) |  verify if number aren't equals as another | OK | Ready  |
 | isBetween (val: number, comparer: number, property: string, message: string) |  verify if number is between | OK | Ready  |
+| valid : boolean | status of the contact to know if it's valid | OK | Ready  |
+| invalid : boolean | status of the contact to know if it's invalid | OK | Ready  |
