@@ -20,7 +20,7 @@ export class Product extends Notifiable {
         super();
 
         const contract = new ValidationContract()
-            .stringIsNotNullOrEmpty(name, "name", "name inválid!");
+            .stringIsNotNullOrEmpty(name, "name", "invalid name!");
         
         this.addNotifications(contract.notifications);
     }
