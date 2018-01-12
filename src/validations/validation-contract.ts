@@ -1,12 +1,12 @@
 
+import { Guid } from "guid-typescript";
 import { Notifiable } from "../notifications/notifiable";
 import { IValidatable } from "./contracts/ivalidatable";
+import { GuidValidationContract } from "./guid-validator-contract";
 import { NumberValidationContract } from "./number-validation-contract";
 import { StringValidationContract } from "./string-validation-contract";
 
-
-
-export class ValidationContract extends Notifiable implements StringValidationContract, NumberValidationContract, IValidatable {
+export class ValidationContract extends Notifiable implements StringValidationContract, NumberValidationContract, GuidValidationContract, IValidatable {
    
     /** 
      * String Validation Contract
@@ -34,6 +34,16 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     public numberAreNotEquals: (val: number, comparer: number, property: string, message: string) => ValidationContract;
     public isBetween: (val: number, from: number, to: number, property: string, message: string) => ValidationContract;
 
+    /** 
+     * Guid Validation Contract
+     */
+    public guidIsNotNullOrEmpty: (val: Guid, property: string, message: string) => ValidationContract;
+    public guidIsNullOrEmpty: (val: Guid, property: string, message: string) => ValidationContract;
+    public guidIsNotEmpty: (val: Guid, property: string, message: string) => ValidationContract;
+    public guidIsEmpty: (val: Guid, property: string, message: string) => ValidationContract;
+    public guidAreEquals: (val: Guid, comparer: Guid, property: string, message: string) => ValidationContract;
+    public guidAreNotEquals: (val: Guid, comparer: Guid, property: string, message: string) => ValidationContract;
+    
     constructor() {
         super();
     }
@@ -47,7 +57,7 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     }
 }
 
-applyMixins(ValidationContract, [StringValidationContract, NumberValidationContract]);
+applyMixins(ValidationContract, [StringValidationContract, NumberValidationContract, GuidValidationContract]);
 
 ////////////////////////////////////////
 // In your runtime library somewhere
