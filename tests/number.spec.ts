@@ -1,6 +1,6 @@
 import { assert, expect } from "chai";
 import "mocha";
-import { ValidationContract } from "../index";
+import { ValidationContract } from "../src/index";
 
 describe("Number test", () => {
 

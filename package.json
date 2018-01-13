@@ -1,8 +1,7 @@
 {
   "name": "fluent-validator-typescript",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "Validation library in Typescript based in design contracts",
-  "main": "index.ts",
   "author": "nicolas",
   "license": "ISC",
   "repository": {
@@ -11,13 +10,20 @@
   },
   "scripts": {
     "verify": ".\\node_modules\\.bin\\tslint .\\src\\**",
-    "test": "npm run verify && mocha -r ts-node/register tests/*.spec.ts"
+    "test": "npm run verify && mocha -r ts-node/register tests/*.spec.ts",
+    "build": ".\\node_modules\\.bin\\tsc"
   },
   "keywords": [
     "typescript",
     "validator",
     "validate"
   ],
+  "typings": "dist/index.d.ts",
+  "main": "dist/index.js",
+  "es2015": "src/index.ts",
+  "typescript": {
+    "definition": "dist/index.d.ts"
+  },
   "devDependencies": {
     "@types/chai": "^4.1.0",
     "@types/mocha": "^2.2.46",

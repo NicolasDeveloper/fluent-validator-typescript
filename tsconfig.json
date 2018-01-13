@@ -2,8 +2,11 @@
     "compilerOptions": {
         "target": "es6",
         "module": "commonjs",
-        "outDir": "dist"
+        "outDir": "dist",
+        "typeRoots" : [],
+        "declaration": true
     },
+    "compileOnSave": true,
     "include": [
         "src/**/*.ts"
     ],

@@ -1,7 +1,7 @@
 import { assert, expect } from "chai";
 import { Guid } from "guid-typescript";
 import "mocha";
-import { ValidationContract } from "../index";
+import { ValidationContract } from "../src/index";
 
 describe("Guid test", () => {
 
