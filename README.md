@@ -29,7 +29,7 @@ export class Product extends Notifiable {
 
 const product =  Product("product");
 if(product.valid) {
-    console.log("do anything");
+    console.log("do some thing");
 }
 
 ```
