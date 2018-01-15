@@ -56,3 +56,9 @@ export class Product extends Notifiable {
 | guidIsNotEmpty (val: Guid, property: string, message: string) | validate if guid code is not empty | OK | Ready  |
 | guidIsEmpty (val: Guid, property: string, message: string) | validate if guid code is empty | OK | Ready  |
 | guidAreEquals (val: Guid, comparer: Guid, property: string, message: string) | validate if guids codes are equals  | OK | Ready  |
+| objectIsNotNull (val: any, property: string, message: string): IValidatable | validate if object is not null  | OK | Ready  |
+| objectIsNull (val: any, property: string, message: string): IValidatable | validate if object is null  | OK | Ready  |
+| objectAreEquals (val: any, comparer: any, property: string, message: string) | validate if object are equals  | OK | Ready  |
+| objectAreNotEquals (val: any, comparer: any, property: string, message: string) | validate if object are not equals  | OK | Ready  |
+| isTrue (val: boolean, property: string, message: string): IValidatable | validate if is true value  | OK | Ready  |
+| isFalse (val: boolean, property: string, message: string): IValidatable | validate if is false value  | OK | Ready  |

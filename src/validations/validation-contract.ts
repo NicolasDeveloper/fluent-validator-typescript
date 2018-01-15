@@ -1,13 +1,21 @@
 
 import { Guid } from "guid-typescript";
 import { Notifiable } from "../notifications/notifiable";
+import { BooleanValidationContract } from "./boolean-validation-contract";
 import { IValidatable } from "./contracts/ivalidatable";
 import { GuidValidationContract } from "./guid-validator-contract";
 import { NumberValidationContract } from "./number-validation-contract";
+import { ObjectValidationContract } from "./object-validation-contract";
 import { StringValidationContract } from "./string-validation-contract";
 
-export class ValidationContract extends Notifiable implements StringValidationContract, NumberValidationContract, GuidValidationContract, IValidatable {
-   
+export class ValidationContract extends Notifiable implements
+    StringValidationContract,
+    NumberValidationContract,
+    GuidValidationContract,
+    ObjectValidationContract,
+    BooleanValidationContract,
+    IValidatable {
+
     /** 
      * String Validation Contract
      */
@@ -43,7 +51,21 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     public guidIsEmpty: (val: Guid, property: string, message: string) => ValidationContract;
     public guidAreEquals: (val: Guid, comparer: Guid, property: string, message: string) => ValidationContract;
     public guidAreNotEquals: (val: Guid, comparer: Guid, property: string, message: string) => ValidationContract;
-    
+
+    /** 
+     * Object Validation Contract
+     */
+    public objectIsNotNull: (val: any, property: string, message: string) => ValidationContract;
+    public objectIsNull: (val: any, property: string, message: string) => ValidationContract;
+    public objectAreEquals: (val: any, compare: any, property: string, message: string) => ValidationContract;
+    public objectAreNotEquals: (val: any, compare: any, property: string, message: string) => ValidationContract;
+
+    /** 
+     * Boolean Validation Contract
+     */
+    public isTrue: (val: boolean, property: string, message: string) => ValidationContract;
+    public isFalse: (val: boolean, property: string, message: string) => ValidationContract;
+
     constructor() {
         super();
     }
@@ -57,7 +79,12 @@ export class ValidationContract extends Notifiable implements StringValidationCo
     }
 }
 
-applyMixins(ValidationContract, [StringValidationContract, NumberValidationContract, GuidValidationContract]);
+applyMixins(ValidationContract, [
+    StringValidationContract,
+    NumberValidationContract,
+    GuidValidationContract,
+    ObjectValidationContract,
+    BooleanValidationContract]);
 
 ////////////////////////////////////////
 // In your runtime library somewhere
