@@ -20,11 +20,18 @@ export class Product extends Notifiable {
         super();
 
         const contract = new ValidationContract()
-            .stringIsNotNullOrEmpty(name, "name", "invalid name!");
+            .stringIsNotNullOrEmpty(name, "name", "invalid name!")
+            .hasMinLen(name, 5, "string", "name len is less than permited");
         
         this.addNotifications(contract.notifications);
     }
 }
+
+const product =  Product("product");
+if(product.valid) {
+    console.log("do anything");
+}
+
 ```
 
 ## Props and Methods
