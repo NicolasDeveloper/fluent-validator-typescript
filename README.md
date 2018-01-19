@@ -69,3 +69,13 @@ if(product.valid) {
 | objectAreNotEquals (val: any, comparer: any, property: string, message: string) | validate if object are not equals  | OK | Ready  |
 | isTrue (val: boolean, property: string, message: string): IValidatable | validate if is true value  | OK | Ready  |
 | isFalse (val: boolean, property: string, message: string): IValidatable | validate if is false value  | OK | Ready  |
+| dateIsGreaterThan (val: Date, comparer: Date, property: string, message: string): IValidatable | validate if date is greater than  | OK | Ready |
+| dateIsGreaterOrEqualsThan (val: Date, comparer: Date, property: string, message: string): IValidatable | validate if date is greater or equals than  | OK | Ready |
+| dateIsLowerThan (val: Date, comparer: Date, property: string, message: string): IValidatable | validate if date is lower than  | OK | Ready |
+| dateIsLowerOrEqualsThan (val: Date, comparer: Date, property: string, message: string): IValidatable | validate if date is lower or equals than | OK | Ready |
+| dateIsBetween (val: Date, from: Date, to: Date, property: string, message: string): IValidatable | validate if date is between | OK | Ready |
+| creditCardDateIsValid (val: string, property: string, message: string): IValidatable | validate if date is valid | OK | Ready |
+| creditCardDateIsGreaterThanToday (val: string, property: string, message: string): IValidatable | validate if date is expired | OK | Ready |
+ 
+
+    
