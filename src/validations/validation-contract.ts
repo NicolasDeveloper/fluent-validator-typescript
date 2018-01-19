@@ -3,6 +3,8 @@ import { Guid } from "guid-typescript";
 import { Notifiable } from "../notifications/notifiable";
 import { BooleanValidationContract } from "./boolean-validation-contract";
 import { IValidatable } from "./contracts/ivalidatable";
+import { CreditCardValidationContract } from "./credit-card-validation-contract";
+import { DateValidationContract } from "./date-validation-contract";
 import { GuidValidationContract } from "./guid-validator-contract";
 import { NumberValidationContract } from "./number-validation-contract";
 import { ObjectValidationContract } from "./object-validation-contract";
@@ -14,6 +16,8 @@ export class ValidationContract extends Notifiable implements
     GuidValidationContract,
     ObjectValidationContract,
     BooleanValidationContract,
+    DateValidationContract,
+    CreditCardValidationContract,
     IValidatable {
 
     /** 
@@ -66,6 +70,22 @@ export class ValidationContract extends Notifiable implements
     public isTrue: (val: boolean, property: string, message: string) => ValidationContract;
     public isFalse: (val: boolean, property: string, message: string) => ValidationContract;
 
+
+    /** 
+     * Date Validation Contract
+     */
+    public dateIsGreaterThan: (val: Date, comparer: Date, property: string, message: string) => ValidationContract;
+    public dateIsGreaterOrEqualsThan: (val: Date, comparer: Date, property: string, message: string) => ValidationContract;
+    public dateIsLowerThan: (val: Date, comparer: Date, property: string, message: string) => ValidationContract;
+    public dateIsLowerOrEqualsThan: (val: Date, comparer: Date, property: string, message: string) => ValidationContract;
+    public dateIsBetween: (val: Date, from: Date, to: Date, property: string, message: string) => ValidationContract;
+
+    /** 
+     * Credit Card Validation Contract
+     */    
+    public creditCardDateIsValid: (val: string, property: string, message: string) => ValidationContract;
+    public creditCardDateIsGreaterThanToday: (val: string, property: string, message: string) => ValidationContract;
+
     constructor() {
         super();
     }
@@ -84,7 +104,9 @@ applyMixins(ValidationContract, [
     NumberValidationContract,
     GuidValidationContract,
     ObjectValidationContract,
-    BooleanValidationContract]);
+    BooleanValidationContract,
+    CreditCardValidationContract,
+    DateValidationContract]);
 
 ////////////////////////////////////////
 // In your runtime library somewhere

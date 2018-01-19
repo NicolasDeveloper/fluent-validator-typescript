@@ -7,7 +7,7 @@ export class GuidValidationContract extends Notifiable implements IValidatable {
 
     public guidIsNotNullOrEmpty(val: Guid, property: string, message: string): IValidatable {
 
-        if (!val || val === null || typeof val === "undefined" || val.isEmpty()) {
+        if (!val || val === null || typeof val === "undefined" || val.isEmpty() || !Guid.isGuid(val)) {
             this.addNotification(new Notification(property, message));
         }
         return this;
@@ -16,7 +16,7 @@ export class GuidValidationContract extends Notifiable implements IValidatable {
     public guidIsNullOrEmpty(val: Guid, property: string, message: string): IValidatable {
 
         if (val !== null || val) {
-            if (!val.isEmpty()) {
+            if (!Guid.isGuid(val) || !val.isEmpty()) {
                 this.addNotification(new Notification(property, message));
             }
         }
@@ -26,7 +26,7 @@ export class GuidValidationContract extends Notifiable implements IValidatable {
     public guidIsNotEmpty(val: Guid, property: string, message: string): IValidatable {
 
         if (val || val !== null) {
-            if (val.isEmpty()) {
+            if (!Guid.isGuid(val) || val.isEmpty()) {
                 this.addNotification(new Notification(property, message));
             }
         }
@@ -35,7 +35,7 @@ export class GuidValidationContract extends Notifiable implements IValidatable {
 
     public guidIsEmpty(val: Guid, property: string, message: string): IValidatable {
 
-        if (val === null || !val || !(val.isEmpty())) {
+        if (val === null || !val || !Guid.isGuid(val) || !(val.isEmpty())) {
             this.addNotification(new Notification(property, message));
         }
         return this;
