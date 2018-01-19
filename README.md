@@ -76,6 +76,7 @@ if(product.valid) {
 | dateIsBetween (val: Date, from: Date, to: Date, property: string, message: string): IValidatable | validate if date is between | OK | Ready |
 | creditCardDateIsValid (val: string, property: string, message: string): IValidatable | validate if date is valid | OK | Ready |
 | creditCardDateIsGreaterThanToday (val: string, property: string, message: string): IValidatable | validate if date is expired | OK | Ready |
+| creditCardDateIsValid (val: string, property: string, message: string): IValidatable | validate if number is valid | OK | Ready | 
  
 
     

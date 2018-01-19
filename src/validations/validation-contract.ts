@@ -85,7 +85,8 @@ export class ValidationContract extends Notifiable implements
      */    
     public creditCardDateIsValid: (val: string, property: string, message: string) => ValidationContract;
     public creditCardDateIsGreaterThanToday: (val: string, property: string, message: string) => ValidationContract;
-
+    public creditCardNumberIsValid: (val: string, property: string, message: string) => ValidationContract;
+    
     constructor() {
         super();
     }

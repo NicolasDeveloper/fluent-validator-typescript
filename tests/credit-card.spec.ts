@@ -25,6 +25,21 @@ describe("Credit card test", () => {
         expect(right.valid).to.equal(true);
     });
 
+    it("should be valid number", () => {
+        const wrong = new ValidationContract()
+            .requires()
+            .creditCardNumberIsValid("111222", "date", "should be valid number!");
+
+        expect(wrong.invalid).to.equal(true);
+        expect(wrong.notifications.Count()).to.equal(1);
+
+        const right = new ValidationContract()
+            .requires()
+            .creditCardNumberIsValid("6011382293778243", "date", "should be valid number!");
+
+        expect(right.valid).to.equal(true);
+    });
+
     it("shouldn't be expired", () => {
 
         const wrong = new ValidationContract()
