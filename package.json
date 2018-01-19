@@ -1,6 +1,6 @@
 {
   "name": "fluent-validator-typescript",
-  "version": "1.0.17",
+  "version": "1.0.19",
   "description": "Validation library in Typescript based in design contracts",
   "author": "nicolas",
   "license": "ISC",
